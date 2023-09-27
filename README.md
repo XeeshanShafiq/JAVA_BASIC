@@ -1,2 +1,2 @@
 # JAVA_BASIC
-Basic java code.
+Basic REST & POST API in core java code.
