@@ -1,2 +1,2 @@
 # JAVA_BASIC
-Basic java code.
+Basic CRUD operations in java.
