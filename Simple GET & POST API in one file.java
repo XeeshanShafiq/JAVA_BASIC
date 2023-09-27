@@ -1,9 +1,3 @@
-===========================================================================================
-========== This file is used to create a GET method and POST method API ===================
-========== NOTE: it will only show responce of POST method=================================
-===========================================================================================
-
-
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
