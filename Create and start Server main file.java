@@ -1,7 +1,3 @@
-==========================================================================================
-========== This main file is used to Create and start a server for API files==============
-==========================================================================================
-
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
