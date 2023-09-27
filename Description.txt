@@ -1,0 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////////
+/////////////In this project i have created CRUD operations on Employee/////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////APIs used in this project//////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+:: @PostMapping("/employee/create") //for creating employee and checking if it already exists or not
+
+:: @GetMapping("/employee/all") //getting data of all the employees stored in Database
+
+:: @GetMapping("/employee/id/{emp_id}") //getting employee data by id
+
+:: @GetMapping("/employee/name/{emp_name}") //getting employee data by name
+
+:: @PutMapping("/employee/update/{emp_id}") //updating employee by ID
+
+:: @DeleteMapping("/employee/delete/{emp_id}") //deleting employee by ID
+
+:: @DeleteMapping("/employee/deleteall") //deleting all employees data from Database
