@@ -1,2 +1,3 @@
 # JAVA_BASIC
-Basic java code.
+Redis in Spring Boot 
+Storing data in Redis Cache
