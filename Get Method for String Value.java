@@ -1,7 +1,3 @@
-==========================================================================================
-========== This file is used to create a GET method for an String value===================
-==========================================================================================
-
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
