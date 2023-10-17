@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import lombok.Data;
-import org.springframework.data.redis.core.RedisHash;
 import javax.persistence.*;
 
 @Data
