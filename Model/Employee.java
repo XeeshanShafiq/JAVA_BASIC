@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@RedisHash("Employee")
 @Table(name = "employee")
 public class Employee {
     @Id
