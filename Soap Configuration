@@ -1,9 +1,43 @@
 ===============================SOAP=======================================
+=================FOR GENERATING CLASSES FROM WSDL=========================
 
-=> At the start of the project you need a xsd/wsdl file for generating classes.
-=> Then you need a dependency and a plugin into pom.xml
+ WE ONLY NEED BELOW DEPENDENCY AND PLUGIN
 
-====================THIS PART IS DONE FOR THE XSD FILE====================
+
+<dependency>
+	<groupId>wsdl4j</groupId>
+	<artifactId>wsdl4j</artifactId>
+	<version>1.6.2</version>
+</dependency>
+
+
+
+<plugin>
+	<groupId>org.jvnet.jaxb2.maven2</groupId>
+	<artifactId>maven-jaxb2-plugin</artifactId>
+	<version>0.14.0</version>
+		<executions>
+			<execution>
+				<goals>
+					<goal>generate</goal>
+				</goals>
+			</execution>
+		</executions>
+			<configuration>
+				<schemaLanguage>WSDL</schemaLanguage>
+				<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+				<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
+					<schemaIncludes>
+						<include>FileName.wsdl</include>
+					</schemaIncludes>
+			</configuration>
+</plugin>
+
+
+=====================================================================================================
+
+
+====================FOR THE XSD FILE====================
 DEPENDENCY:
 
 <dependency>
@@ -33,31 +67,7 @@ PLUGIN:
 		</configuration>
 </plugin>
 
-====================FOR GENERATING CLASSES FROM WSDL FILE===================
-
-<plugin>
-	<groupId>org.jvnet.jaxb2.maven2</groupId>
-	<artifactId>maven-jaxb2-plugin</artifactId>
-	<version>0.14.0</version>
-		<executions>
-			<execution>
-				<goals>
-					<goal>generate</goal>
-				</goals>
-			</execution>
-		</executions>
-			<configuration>
-				<schemaLanguage>WSDL</schemaLanguage>
-				<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-				<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
-					<schemaIncludes>
-						<include>ADD WSDL FILE NAME</include>
-					</schemaIncludes>
-			</configuration>
-</plugin>
-
-=============================================================================
-
+===================================================================================================
 Now for generating a wsdl file from the xsd. we need SOAP configuration file.
 
 In it we need a dependecny for SPRING WS CORE
@@ -84,7 +94,7 @@ public class SoapConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean(servlet, "/vassb/*");
     }
 
-    @Bean(name ="vas")
+    @Bean(name ="user")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema userSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("vasSB");
@@ -95,7 +105,7 @@ public class SoapConfig extends WsConfigurerAdapter {
 
     @Bean
     public XsdSchema userSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("ZongReverse.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("user.xsd"));
     }
 }
 
@@ -114,6 +124,6 @@ IF you get error in "return new ServletRegistrationBean(servlet, "/vassb/*")" AD
 
 URL FOR THE GENERATING WSDL FORM XSD WILL BE: 
 
-http://localhost:8081/vassb/user.wsdl
+http://localhost:8081/vassb/user.wsdl 	//SERVER:PORT/SERVELET_NAME/BEAN_NAME.WSDL
 
 (HERE I HAVE CHANGED THE SERVER.PORT TO 8081)
